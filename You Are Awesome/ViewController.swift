@@ -26,6 +26,7 @@ class ViewController: UIViewController {
         DO NOT rename IBOutlets by typing to replace the outlet name in your Swift File. It will break the connection and cause your app to crash spectacularly and in a most un-friendly way. Instead, rename, high light the variable, right-click and REFACTOR -> RENAME.
      */
     @IBOutlet weak var awesomeLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
     
     /*
      viewDidLoad is triggered by a system event that runs each time this screen loads
@@ -41,6 +42,7 @@ class ViewController: UIViewController {
      */
     @IBAction func showButtonPressed(_ sender: UIButton) {
         awesomeLabel.text = "You're Awesome!"
+        imageView.image = UIImage(named: "image0")
     }
 }
 

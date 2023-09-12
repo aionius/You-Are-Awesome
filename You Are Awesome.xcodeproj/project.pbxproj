@@ -24,6 +24,7 @@
 		6D8070DD2AAF70B900B19C2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6D8070E02AAF70B900B19C2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6D8070E22AAF70B900B19C2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6D8071482AB0A8FD00B19C2A /* Notes.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Notes.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +64,7 @@
 				6D8070DD2AAF70B900B19C2A /* Assets.xcassets */,
 				6D8070DF2AAF70B900B19C2A /* LaunchScreen.storyboard */,
 				6D8070E22AAF70B900B19C2A /* Info.plist */,
+				6D8071482AB0A8FD00B19C2A /* Notes.md */,
 			);
 			path = "You Are Awesome";
 			sourceTree = "<group>";
