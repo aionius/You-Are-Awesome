@@ -25,7 +25,7 @@ class ViewController: UIViewController {
      WARNING:
         DO NOT rename IBOutlets by typing to replace the outlet name in your Swift File. It will break the connection and cause your app to crash spectacularly and in a most un-friendly way. Instead, rename, high light the variable, right-click and REFACTOR -> RENAME.
      */
-    @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var awesomeLabel: UILabel!
     
     /*
      viewDidLoad is triggered by a system event that runs each time this screen loads
@@ -33,14 +33,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        messageLabel.text = "Fabulous!"
+        awesomeLabel.text = "Fabulous!"
     }
 
     /*
      showButtonPressed is triggered by a user action and runs each time the associated button is pressed
      */
     @IBAction func showButtonPressed(_ sender: UIButton) {
-        messageLabel.text = "You're Awesome!"
+        awesomeLabel.text = "You're Awesome!"
     }
 }
 
