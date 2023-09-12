@@ -22,4 +22,10 @@ View->Content Mode->Scale to Fit
 
 NOTE: “It can often be most useful to design on the smallest device that you might deploy your device on. If you don’t, you risk resizing on smaller devices and having your interface squeeze or fail to show everything as you intended. Buttons that resize their widths based on device size may unexpectedly cut off text on smaller devices.”
 
+# Reset Indentation
+⌘+A = Select All
+⌃+I = Resent Indentation
 
+# Debugging
+lldb (low level debugger) - when used with po (print object) command,
+XCode will show the contents of values, or the result of expressions at the current point wher code was paused

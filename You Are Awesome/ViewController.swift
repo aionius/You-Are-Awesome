@@ -18,14 +18,14 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     /*
      @IBOutlet - connects an object on the Interface Builder (IB) canvas, such as a label, to your code.
      
      WARNING:
-        DO NOT rename IBOutlets by typing to replace the outlet name in your Swift File. It will break the connection and cause your app to crash spectacularly and in a most un-friendly way. Instead, rename, high light the variable, right-click and REFACTOR -> RENAME.
+     DO NOT rename IBOutlets by typing to replace the outlet name in your Swift File. It will break the connection and cause your app to crash spectacularly and in a most un-friendly way. Instead, rename, high light the variable, right-click and REFACTOR -> RENAME.
      */
-    @IBOutlet weak var awesomeLabel: UILabel!
+    @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
     /*
@@ -33,16 +33,29 @@ class ViewController: UIViewController {
      */
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        awesomeLabel.text = ""
+        
+        messageLabel.text = ""
     }
-
+    
     /*
      showButtonPressed is triggered by a user action and runs each time the associated button is pressed
      */
     @IBAction func showButtonPressed(_ sender: UIButton) {
-        awesomeLabel.text = "You're Awesome!"
-        imageView.image = UIImage(named: "image0")
+        
+        let awesomeMessage: String = "You're Awesome!"
+        let greatMessage: String = "You're Great!"
+        let daBombMessage: String = "You're Da Bomb!"
+        
+        if messageLabel.text == awesomeMessage {
+            messageLabel.text = greatMessage
+            imageView.image = UIImage(named: "image1")
+        } else if messageLabel.text == greatMessage {
+            messageLabel.text = daBombMessage
+            imageView.image = UIImage(named: "image2")
+        } else {
+            messageLabel.text = awesomeMessage
+            imageView.image = UIImage(named: "image0")
+        }
     }
 }
 

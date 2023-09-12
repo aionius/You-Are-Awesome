@@ -52,8 +52,8 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="awesomeLabel" destination="bZk-Mq-mVQ" id="TMW-un-FP1"/>
                         <outlet property="imageView" destination="DDk-Ww-tRk" id="p2W-xa-MKX"/>
+                        <outlet property="messageLabel" destination="bZk-Mq-mVQ" id="TMW-un-FP1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
