@@ -34,7 +34,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        awesomeLabel.text = "Fabulous!"
+        awesomeLabel.text = ""
     }
 
     /*
