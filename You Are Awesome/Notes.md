@@ -30,3 +30,15 @@ Editor > Structure > Re-Indent
 
 # Debugging
 lldb (low level debugger) - when used with po (print object) command or v (for frame variable) command, XCode will show the contents of values, or the result of expressions at the current point wher code was paused
+
+# Underscores as Numeric Place Holders
+
+Since Swift won’t allow commas inside of large numbers, it can sometimes be difficult to be sure that you’re accurately typing any large numeric literals properly in your code. Instead of using commas, Swift allows underscore characters to be used as no-impact placeholders. For example: to prevent you from being a zero off in 30000000000 you could type: 30_000_000_000. The underscores will not show up when values are displayed, and this number will otherwise function normally in any value that it is assigned to.
+
+var bigNumber = 30_000_000_000
+print(bigNumber, bigNumber * 10)
+// console output: 30000000000 300000000000
+
+# REPL (Read, Evaluate, Print, Loop)
+
+Executes code immediately, or when run, without needing to compile. Code that is exeucted instantly, without compiling, is said to be interpreted.

@@ -29,6 +29,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     
     var imageNumber: Int = 0
+    var messageNumber: Int = 0
     
     /*
      viewDidLoad is triggered by a system event that runs each time this screen loads
@@ -59,14 +60,30 @@ class ViewController: UIViewController {
         //            imageView.image = UIImage(named: "image0")
         //        }
         
-
-        if imageNumber > 9 {
-            imageNumber = 0
+        let messages: [String] = ["You're Awesome!",
+                                  "You're Great!",
+                                  "You're Da Bomb!",
+                                  "You're Fantastic",
+                                  "Fabulous? That's You!",
+                                  "You Make Me Smile",
+                                  "I Think You're Magic!",
+                                  "You Swifty!",
+                                  "You Are a Legend!",
+                                  "You Are Wonderful!"]
+        
+        messageLabel.text = messages[messageNumber]
+        messageNumber += 1
+        if messageNumber > messages.count - 1 {
+            messageNumber = 0
         }
         
         imageView.image = UIImage(named: "image\(imageNumber)")
         imageNumber += 1
+        if imageNumber > 9 {
+            imageNumber = 0
+        }
         
     }
 }
+
 
