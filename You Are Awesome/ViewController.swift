@@ -71,17 +71,21 @@ class ViewController: UIViewController {
                                   "You Are a Legend!",
                                   "You Are Wonderful!"]
         
-        messageLabel.text = messages[messageNumber]
-        messageNumber += 1
-        if messageNumber > messages.count - 1 {
-            messageNumber = 0
-        }
+        // display random message and image
+        messageLabel.text = messages[Int.random(in: 0...messages.count - 1)]
+        imageView.image = UIImage(named: "image\(Int.random(in: 0...9))")
         
-        imageView.image = UIImage(named: "image\(imageNumber)")
-        imageNumber += 1
-        if imageNumber > 9 {
-            imageNumber = 0
-        }
+        //        messageLabel.text = messages[messageNumber]
+        //        messageNumber += 1
+        //        if messageNumber > messages.count - 1 {
+        //            messageNumber = 0
+        //        }
+        
+        //        imageView.image = UIImage(named: "image\(imageNumber)")
+        //        imageNumber += 1
+        //        if imageNumber > 9 {
+        //            imageNumber = 0
+        //        }
         
     }
 }

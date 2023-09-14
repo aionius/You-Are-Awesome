@@ -42,3 +42,21 @@ print(bigNumber, bigNumber * 10)
 # REPL (Read, Evaluate, Print, Loop)
 
 Executes code immediately, or when run, without needing to compile. Code that is exeucted instantly, without compiling, is said to be interpreted.
+
+# Closed Range
+
+States the starting and ending values of a range of numbers. The numbers areseparated by tree dots, and both the start and end values are included as part of the range
+
+Ranges can be closed (expressed as a start value followed by three dots, then an end value)
+
+// generates random numbers between 1 and 6
+let diceRoll: Int = Int.random(in: 1...6)
+
+Ranges can also be half-open. A half-open range says "consider a range that starts at the first value and goes up to but does not include the end value". Half-open ranges are written as the first value range, then followed by two dots and a less-than symbol, and then the end value that the range will never equal or exceed
+
+// generates random numbers between 1 and 6
+let diceRool: Int = Int.random(in: 1..<7)
+
+# Label Line Attribute
+
+Setting a Label's  "Lines" attribute to zero will allow the label to use as many lines as needed to display text. If the Label's height is not constrained, then the label height will grow or shrink to accomodate the lines used. If height is restricted, only the lines that fit into that height will show.
