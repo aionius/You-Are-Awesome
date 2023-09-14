@@ -28,8 +28,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
-    var imageNumber: Int = 0
-    var messageNumber: Int = 0
+    var imageNumber: Int = -1
+    var messageNumber: Int = -1
+    var totalNumberOfImages: Int = 9
     
     /*
      viewDidLoad is triggered by a system event that runs each time this screen loads
@@ -45,21 +46,6 @@ class ViewController: UIViewController {
      */
     @IBAction func showButtonPressed(_ sender: UIButton) {
         
-        //        let awesomeMessage: String = "You're Awesome!"
-        //        let greatMessage: String = "You're Great!"
-        //        let daBombMessage: String = "You're Da Bomb!"
-        //
-        //        if messageLabel.text == awesomeMessage {
-        //            messageLabel.text = greatMessage
-        //            imageView.image = UIImage(named: "image1")
-        //        } else if messageLabel.text == greatMessage {
-        //            messageLabel.text = daBombMessage
-        //            imageView.image = UIImage(named: "image2")
-        //        } else {
-        //            messageLabel.text = awesomeMessage
-        //            imageView.image = UIImage(named: "image0")
-        //        }
-        
         let messages: [String] = ["You're Awesome!",
                                   "You're Great!",
                                   "You're Da Bomb!",
@@ -71,22 +57,38 @@ class ViewController: UIViewController {
                                   "You Are a Legend!",
                                   "You Are Wonderful!"]
         
-        // display random message and image
-        messageLabel.text = messages[Int.random(in: 0...messages.count - 1)]
-        imageView.image = UIImage(named: "image\(Int.random(in: 0...9))")
-        
+        //        // display random message and image using while loop
+        //        var newMessageNumber = Int.random(in: 0...messages.count - 1)
+        //
+        //        while messageNumber == newMessageNumber {
+        //            newMessageNumber = Int.random(in: 0...messages.count)
+        //        }
+        //        messageNumber = newMessageNumber
         //        messageLabel.text = messages[messageNumber]
-        //        messageNumber += 1
-        //        if messageNumber > messages.count - 1 {
-        //            messageNumber = 0
+        //
+        //        var newImageNumber = Int.random(in: 0...totalNumberOfImages)
+        //        while imageNumber == newImageNumber {
+        //            newImageNumber = Int.random(in: 0...totalNumberOfImages)
         //        }
-        
+        //        imageNumber = newImageNumber
         //        imageView.image = UIImage(named: "image\(imageNumber)")
-        //        imageNumber += 1
-        //        if imageNumber > 9 {
-        //            imageNumber = 0
-        //        }
         
+        // display random message and image using repeat-while loop
+        var newMessageNumber: Int
+        repeat {
+            newMessageNumber = Int.random(in: 0...messages.count-1)
+        } while messageNumber == newMessageNumber
+        
+        messageNumber = newMessageNumber
+        messageLabel.text = messages[messageNumber]
+        
+        var newImageNumber: Int
+        repeat {
+            newImageNumber = Int.random(in: 0...totalNumberOfImages)
+        } while imageNumber == newImageNumber
+        
+        imageNumber = newImageNumber
+        imageView.image = UIImage(named: "image\(imageNumber)")
     }
 }
 

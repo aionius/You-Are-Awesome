@@ -60,3 +60,22 @@ let diceRool: Int = Int.random(in: 1..<7)
 # Label Line Attribute
 
 Setting a Label's  "Lines" attribute to zero will allow the label to use as many lines as needed to display text. If the Label's height is not constrained, then the label height will grow or shrink to accomodate the lines used. If height is restricted, only the lines that fit into that height will show.
+
+# Multi-Line String
+
+Create a multi-line String by surrounding text with three consecutive double quote marks. The text in a multi-line String shouldn’t be on the same line as the quotation marks. Indentation is handled based on the closing quotes, meaning any line indented further in than the closing quotes will include the indentation. Blank lines inside the triple quotes can be used to create more white space in a String.
+
+let multiLineString = """
+This is the start of multi-line String.
+    The bottom triple-quote is the anchor for indenting.
+"""
+
+# Optionals
+
+In Swift, we say that a value that contains nothing is nil.
+    - nil is different from zero. Zero is a number, nil is an absence of value
+    - nil is different from the empty String "". An empty String is a String of length zero, nill means there is an absence of value
+    
+Values that could be nil (absence of value) or a legitimate valure are called optionals. If you see a ? after the Type name, this is Swift's way of saying "This could be a real Type value, but it might also be nil."
+
+If you're 100% confident that your value is not nil, you can "unwrap" or look inside the optional by puting a "!" mark after the value's name. This is called "force unwrapping" and gets the value inside without "optional" around it. If you were to get nil, your code would crash while running. 
