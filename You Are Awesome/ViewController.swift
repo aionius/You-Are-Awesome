@@ -16,8 +16,9 @@
  */
 
 import UIKit
+import AVFoundation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, AVAudioPlayerDelegate {
     
     /*
      @IBOutlet - connects an object on the Interface Builder (IB) canvas, such as a label, to your code.
@@ -31,6 +32,12 @@ class ViewController: UIViewController {
     var imageNumber: Int = -1
     var messageNumber: Int = -1
     var totalNumberOfImages: Int = 9
+    
+    var soundNumber: Int = -1
+    var totalNumberOfSounds: Int = 5
+    
+    // audio player
+    var audioPlayer: AVAudioPlayer?
     
     /*
      viewDidLoad is triggered by a system event that runs each time this screen loads
@@ -89,6 +96,34 @@ class ViewController: UIViewController {
         
         imageNumber = newImageNumber
         imageView.image = UIImage(named: "image\(imageNumber)")
+        
+        // play audio
+        var soundName: String = ""
+        var newSoundNumber: Int = 0
+        repeat {
+            newSoundNumber = Int.random(in: 0...totalNumberOfSounds)
+            soundName = "sound\(newSoundNumber)"
+        } while soundNumber == newSoundNumber
+        
+        playSound(soundName: soundName)
+        
+        
+    }
+    
+    func playSound(soundName: String) {
+        /*
+         if the code to the right of the equal sign is "not nil" create the let constant named "sound" and perform only the code in the first set of curlies, otherwise perform whatever is in the else clause
+         */
+        if let sound = NSDataAsset(name: soundName) {
+            do {
+                try audioPlayer = AVAudioPlayer(data: sound.data)
+                audioPlayer?.play()
+            } catch let error as NSError {
+                print("Error: \(error.localizedDescription) Could not initialize AVAudioPlayer object.")
+            }
+        } else {
+            print("Error: Could not read data from file.")
+        }
     }
 }
 

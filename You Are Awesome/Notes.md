@@ -79,3 +79,51 @@ In Swift, we say that a value that contains nothing is nil.
 Values that could be nil (absence of value) or a legitimate valure are called optionals. If you see a ? after the Type name, this is Swift's way of saying "This could be a real Type value, but it might also be nil."
 
 If you're 100% confident that your value is not nil, you can "unwrap" or look inside the optional by puting a "!" mark after the value's name. This is called "force unwrapping" and gets the value inside without "optional" around it. If you were to get nil, your code would crash while running. 
+
+# while and repeat-while loops
+
+while condition is true {
+    // might not execute if condition is false
+    execute these statements
+}
+
+Once condition is false, skip the curlies above and move down to the next lines of code.
+
+repeat {
+    // always execute atleast once
+    execute these statements
+} while condition is true
+
+Once condition is false, skip the curlies above and move down to the next lines of code.
+
+# Playing a Sound
+
+Load in data from th e sound file in the asset catalog
+    - check to make sure the data was read property
+        - if data could not be read from the file, handle the error
+        - if the data was read in correctly, continue
+
+Create an AVAudioPlayer loaded up to play the data
+    - if the AVAudioPlayer was created, play the file
+    - if it wasn't created, handle the error
+    
+
+# Optional Binding
+Sometimes you’re not sure if a value contains valid data, or if it contains nothing. If you look into a variable and expect a value, but instead see nothing (i.e., nil—an absence of value), then your code will crash.
+
+One of the ways we deal with this possibility in our code is by using the  if let statement. This statement checks to see if a constant can be assigned a value using a let statement (e.g., there is something valid in the value, not the “absence of value” nil). This technique is also known as optional binding.
+    - If the value is not nil, the constant after let is initialized, the first set of curly braces is executed, and the constant initialized in the if let statement has scope through the first set of curly braces. 
+    - If the attempt to assign a constant using let fails (e.g., the let assignment could not happen because a nil was returned), then the first set of curly braces is skipped, no constant is declared by let, and the code instead jumps down to execute the set of curly braces after the else statement (if any). 
+
+If the value to the right of equal is not nil, create the constant named “sound” and execute the code in the first set of curlies; otherwise the code to the right of the equal has resulted in a nil (an absence of value), so drop to the else statement and execute the code in the second set of curlies.
+
+        if let sound = NSDataAsset(name: soundName) {
+            do {
+                try audioPlayer = AVAudioPlayer(data: sound.data)
+                audioPlayer?.play()
+            } catch let error as NSError {
+                print("Error: \(error.localizedDescription) Could not initialize AVAudioPlayer object.")
+            }
+        } else {
+            print("Error: Could not read data from file.")
+        }
