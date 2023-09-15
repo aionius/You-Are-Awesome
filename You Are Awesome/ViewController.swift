@@ -34,7 +34,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
     var totalNumberOfImages: Int = 9
     
     var soundNumber: Int = -1
-    var totalNumberOfSounds: Int = 5
+    var totalNumberOfSounds: Int = 6
     
     // audio player
     var audioPlayer: AVAudioPlayer?
@@ -64,49 +64,15 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
                                   "You Are a Legend!",
                                   "You Are Wonderful!"]
         
-        //        // display random message and image using while loop
-        //        var newMessageNumber = Int.random(in: 0...messages.count - 1)
-        //
-        //        while messageNumber == newMessageNumber {
-        //            newMessageNumber = Int.random(in: 0...messages.count)
-        //        }
-        //        messageNumber = newMessageNumber
-        //        messageLabel.text = messages[messageNumber]
-        //
-        //        var newImageNumber = Int.random(in: 0...totalNumberOfImages)
-        //        while imageNumber == newImageNumber {
-        //            newImageNumber = Int.random(in: 0...totalNumberOfImages)
-        //        }
-        //        imageNumber = newImageNumber
-        //        imageView.image = UIImage(named: "image\(imageNumber)")
-        
-        // display random message and image using repeat-while loop
-        var newMessageNumber: Int
-        repeat {
-            newMessageNumber = Int.random(in: 0...messages.count-1)
-        } while messageNumber == newMessageNumber
-        
-        messageNumber = newMessageNumber
+        messageNumber = nonRepeatingRandom(originalNumber: messageNumber, upperBounds: messages.count-1)
         messageLabel.text = messages[messageNumber]
         
-        var newImageNumber: Int
-        repeat {
-            newImageNumber = Int.random(in: 0...totalNumberOfImages)
-        } while imageNumber == newImageNumber
-        
-        imageNumber = newImageNumber
+        imageNumber = nonRepeatingRandom(originalNumber: imageNumber, upperBounds: totalNumberOfImages-1)
         imageView.image = UIImage(named: "image\(imageNumber)")
         
         // play audio
-        var soundName: String = ""
-        var newSoundNumber: Int = 0
-        repeat {
-            newSoundNumber = Int.random(in: 0...totalNumberOfSounds)
-            soundName = "sound\(newSoundNumber)"
-        } while soundNumber == newSoundNumber
-        
+        var soundName: String = "sound\(nonRepeatingRandom(originalNumber: soundNumber, upperBounds: totalNumberOfSounds-1))"
         playSound(soundName: soundName)
-        
         
     }
     
@@ -124,6 +90,15 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
         } else {
             print("Error: Could not read data from file.")
         }
+    }
+    
+    func nonRepeatingRandom(originalNumber: Int, upperBounds: Int) -> Int {
+        var newNumber: Int
+        repeat {
+            newNumber = Int.random(in: 0...upperBounds)
+        } while originalNumber == newNumber
+        
+        return newNumber
     }
 }
 
