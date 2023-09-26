@@ -127,3 +127,44 @@ If the value to the right of equal is not nil, create the constant named “sou
         } else {
             print("Error: Could not read data from file.")
         }
+
+# Functions
+
+In Swift, parameters are the input value that you'll see in a function definition, while arguments are the value passed in when a function is called.
+
+    averageTwoNumbers(firstNumber: firstQuiz, secondNUmber: secondQuiz)
+    
+    ** firstNumber and secondNUmber are the paremeters and firstQuiz and secondQuiz are the arguments
+
+NOTE: Function parameters are immutable constants and behave as if they were defined using a "let", so parameters cannot be modified inside the body of a function. Even though you can use a variable to pass data into a function, once the data is passed into a function parameter, that parameter cannot be changed.
+
+# Function Argument Labels
+
+Swift allows programmers to include a "function argument label" for any parameter in order to improve the readability of code and help clarify the purpose of the function calls. You can add an argument label before each regular (internal) parameter, seperating the argument label and parameter name with a single space.
+
+    func sayHello(to name: String) {
+        print("Hello, \(name)" )
+    }
+
+    sayHello(to: "My Little Friend")
+
+# inout
+
+While standard parameters passed into functions behave like constants, function parameters declared using keyword "inout" behave more like variables. Any value passed in using inout can be changed (mutated) within the function, with changes passed back to the variable that called the function. Use the inout keyword on a func declaration before a parameter’s type, but after its name and colon. When calling a function you need to prefix any inout parameters in the call with an ampersand (&).
+
+    func swapNumbers(a: inout Int, b: inout Int) {
+        let temp = b
+        b = a
+        a = temp
+    }
+    
+    var first = 123
+    var second = 987
+    
+    swapNumbers(a: &first, b: &second)
+    print(first, second)
+    // console output: 987 123
+
+# Edge Cases
+
+A user experience (UX) edge case is a rare occurrence. Testing for edge cases can be a challenged, but can also be very important because some unadressed edge cases may cause the app to crash, corrupt data, or confuse the user.

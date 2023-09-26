@@ -28,6 +28,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
      */
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var playSoundSwitch: UISwitch!
     
     var imageNumber: Int = -1
     var messageNumber: Int = -1
@@ -70,13 +71,27 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
         imageNumber = nonRepeatingRandom(originalNumber: imageNumber, upperBounds: totalNumberOfImages-1)
         imageView.image = UIImage(named: "image\(imageNumber)")
         
+        
         // play audio
         var soundName: String = "sound\(nonRepeatingRandom(originalNumber: soundNumber, upperBounds: totalNumberOfSounds-1))"
-        playSound(soundName: soundName)
+        
+        if playSoundSwitch.isOn {
+            playSound(name: soundName)
+        }
+        
         
     }
     
-    func playSound(soundName: String) {
+    @IBAction func playSoundToggle(_ sender: UISwitch) {
+        if !sender.isOn {
+            audioPlayer?.stop()
+        } else {
+            audioPlayer?.play()
+        }
+        
+    }
+    
+    func playSound(name soundName: String) {
         /*
          if the code to the right of the equal sign is "not nil" create the let constant named "sound" and perform only the code in the first set of curlies, otherwise perform whatever is in the else clause
          */
@@ -90,6 +105,8 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
         } else {
             print("Error: Could not read data from file.")
         }
+        
+        
     }
     
     func nonRepeatingRandom(originalNumber: Int, upperBounds: Int) -> Int {
